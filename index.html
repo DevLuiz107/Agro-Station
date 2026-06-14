@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agro Station</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="hero" id="navbar">
+
+        <div class="logo">
+            <img src="assets/agro_station.svg" alt="Logotipo Agro Station">
+            <span class="logo-name">Agro Station</span>
+        </div>
+
+        <!-- Nav desktop -->
+        <nav class="nav-desktop" aria-label="Menu principal">
+            <ul class="menu">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Serviços e Produtos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <a href="#" class="btn-link">Fale Conosco</a>
+        </nav>
+
+        <!-- Botão hambúrguer (só aparece no mobile) -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+    <!-- Menu mobile (fora do header para não limitar o z-index) -->
+    <nav class="nav-mobile" id="menu-mobile" aria-label="Menu mobile" aria-hidden="true">
+        <ul class="menu-mobile">
+            <li><a href="#" class="menu-mobile-link">Início</a></li>
+            <li><a href="#" class="menu-mobile-link">Sobre Nós</a></li>
+            <li><a href="#" class="menu-mobile-link">Serviços e Produtos</a></li>
+            <li><a href="#" class="menu-mobile-link">Contato</a></li>
+        </ul>
+        <a href="#" class="btn-cta btn-mobile-cta">Fale Conosco</a>
+    </nav>
+
+    <!-- Overlay (fecha o menu ao clicar fora) -->
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <p class="tag">🌱 Agricultura Inteligente</p>
+            <h1 class="hero-title">
+                Do campo à sua mesa,<br>
+                <span>com tecnologia e cuidado.</span>
+            </h1>
+            <p class="hero-text">
+                Soluções agrícolas modernas para quem vive e respeita a terra.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-cta">Conheça nossos produtos</a>
+                <a href="#" class="btn-secondary">Saiba mais</a>
+            </div>
+        </section>
+        <div class="hero-image">
+            <img src="assets/agro_station.svg" alt="Ilustração Agro Station">
+        </div>
+    </main>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#2e7d32"/>
+      <stop offset="100%" stop-color="#7cb342"/>
+    </linearGradient>
+  </defs>
+  <circle cx="400" cy="400" r="360" fill="white" stroke="#1b5e20" stroke-width="10"/>
+  <circle cx="400" cy="290" r="55" fill="#fbc02d"/>
+  <path d="M110 430 C220 340 330 340 400 430 S580 520 690 430 L690 560 L110 560 Z" fill="url(#g)"/>
+  <path d="M120 450 C240 360 360 360 440 450" fill="none" stroke="white" stroke-width="10"/>
+  <path d="M170 465 C290 375 410 375 490 465" fill="none" stroke="white" stroke-width="10"/>
+  <g transform="translate(175,170)">
+    <rect x="65" y="80" width="10" height="120" fill="#2e7d32"/>
+    <ellipse cx="70" cy="65" rx="35" ry="55" fill="#43a047"/>
+    <ellipse cx="35" cy="105" rx="30" ry="20" fill="#4caf50" transform="rotate(-25 35 105)"/>
+    <ellipse cx="105" cy="105" rx="30" ry="20" fill="#4caf50" transform="rotate(25 105 105)"/>
+  </g>
+  <g transform="translate(500,240)">
+    <rect x="0" y="45" width="70" height="20" fill="#2e7d32"/>
+    <rect x="20" y="20" width="25" height="25" fill="#388e3c"/>
+    <circle cx="15" cy="70" r="12" fill="#1b5e20"/>
+    <circle cx="60" cy="70" r="18" fill="#1b5e20"/>
+  </g>
+  <g transform="translate(610,200)">
+    <rect x="20" y="70" width="8" height="80" fill="#2e7d32"/>
+    <circle cx="24" cy="45" r="35" fill="#4caf50"/>
+  </g>
+  <text x="400" y="650" text-anchor="middle" font-size="110" font-family="Arial, sans-serif" font-weight="700" fill="#1b5e20">AGRO</text>
+  <text x="400" y="710" text-anchor="middle" font-size="42" letter-spacing="10" font-family="Arial, sans-serif" fill="#43a047">STATION</text>
+</svg>

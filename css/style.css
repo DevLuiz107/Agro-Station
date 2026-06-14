@@ -1,0 +1,565 @@
+/* ================================================
+   AGRO STATION — style.css
+   Tipografia:
+     Logo    → Comfortaa Bold (700)
+     Títulos → Poppins SemiBold (600)
+     Textos  → Poppins Regular (400)
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Poppins:wght@400;600&display=swap');
+
+/* ══════════════════════════════════════════════════
+   1. RESET
+   ══════════════════════════════════════════════════ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ══════════════════════════════════════════════════
+   2. VARIÁVEIS GLOBAIS
+   ══════════════════════════════════════════════════ */
+:root {
+    /* Cores */
+    --verde-principal: #8BC34A;
+    --verde-claro:     #C8E6C9;
+    --verde-hover:     #7CB342;
+    --verde-escuro:    #2e7d32;
+    --verde-texto-cta: #1a2e00;
+    --branco:          #ffffff;
+
+    /* Navbar */
+    --navbar-bg:       rgba(255, 255, 255, 0.12);
+    --navbar-border:   rgba(255, 255, 255, 0.22);
+    --navbar-scrolled: rgba(16, 30, 15, 0.55);
+
+    /* Menu mobile */
+    --mobile-bg:       rgba(10, 20, 8, 0.96);
+    --mobile-border:   rgba(139, 195, 74, 0.25);
+
+    /* Tipografia */
+    --font-logo:   'Comfortaa', cursive;
+    --font-titulo: 'Poppins', sans-serif;
+    --font-texto:  'Poppins', sans-serif;
+
+    /* Transições */
+    --transition-fast:   0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow:   0.4s ease;
+}
+
+/* ══════════════════════════════════════════════════
+   3. BASE — BODY E BACKGROUND
+   ══════════════════════════════════════════════════ */
+body {
+    font-family: var(--font-texto);
+    font-weight: 400;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--branco);
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)),
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80")
+        center / cover fixed;
+}
+
+/* Trava o scroll do body quando o menu mobile está aberto */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ══════════════════════════════════════════════════
+   4. HEADER — NAVBAR / GLASSMORPHISM
+   ══════════════════════════════════════════════════ */
+.hero {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    width: calc(100% - 48px);
+    max-width: 1360px;
+    padding: 16px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    background: var(--navbar-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--navbar-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+    transition:
+        background var(--transition-slow),
+        backdrop-filter var(--transition-slow);
+}
+
+/* Estado: após scroll */
+#navbar.scrolled {
+    background: var(--navbar-scrolled);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* ══════════════════════════════════════════════════
+   5. LOGO
+   ══════════════════════════════════════════════════ */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2.5px solid var(--verde-principal);
+}
+
+/* Comfortaa Bold — identidade da marca */
+.logo-name {
+    font-family: var(--font-logo);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--branco);
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+/* ══════════════════════════════════════════════════
+   6. NAV DESKTOP — MENU + BOTÃO
+   ══════════════════════════════════════════════════ */
+.nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 40px;
+}
+
+.menu li a {
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--branco);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color var(--transition-normal);
+}
+
+/* Sublinhado animado */
+.menu li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2.5px;
+    background: var(--verde-principal);
+    border-radius: 2px;
+    transition: width 0.35s ease;
+}
+
+.menu li a:hover {
+    color: var(--verde-claro);
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+/* Botão "Fale Conosco" no desktop */
+.btn-link {
+    display: inline-block;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--verde-texto-cta);
+    background: var(--verde-principal);
+    padding: 10px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition:
+        background var(--transition-normal),
+        transform var(--transition-fast);
+}
+
+.btn-link:hover {
+    background: var(--verde-hover);
+    transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════════════
+   7. HAMBÚRGUER
+   ══════════════════════════════════════════════════ */
+.hamburger {
+    display: none; /* escondido no desktop */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background var(--transition-normal);
+}
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* As três linhas */
+.hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--branco);
+    border-radius: 2px;
+    transform-origin: center;
+    transition:
+        transform 0.35s ease,
+        opacity 0.25s ease,
+        width 0.25s ease;
+}
+
+/* Animação para X quando aberto */
+.hamburger.ativo span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.ativo span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+.hamburger.ativo span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ══════════════════════════════════════════════════
+   8. NAV MOBILE — PAINEL DESLIZANTE
+   ══════════════════════════════════════════════════ */
+.nav-mobile {
+    display: none; /* JS + GSAP controlam a visibilidade */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 900;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    background: var(--mobile-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    /* estado inicial para o GSAP animar a partir de */
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Linha decorativa verde no topo do painel */
+.nav-mobile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--verde-principal),
+        transparent
+    );
+}
+
+/* Lista de links do menu mobile */
+.menu-mobile {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0 32px;
+}
+
+.menu-mobile li {
+    width: 100%;
+    text-align: center;
+    opacity: 0; /* cada item entra em stagger pelo GSAP */
+    transform: translateY(16px);
+}
+
+.menu-mobile-link {
+    display: block;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--branco);
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--mobile-border);
+    transition: color var(--transition-normal);
+}
+
+.menu-mobile-link:hover {
+    color: var(--verde-principal);
+}
+
+/* Botão CTA dentro do menu mobile */
+.btn-mobile-cta {
+    margin-top: 24px;
+    opacity: 0; /* entra com GSAP junto ao último item */
+    transform: translateY(16px);
+}
+
+/* ══════════════════════════════════════════════════
+   9. OVERLAY (fecha ao clicar fora)
+   ══════════════════════════════════════════════════ */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 800;
+    background: rgba(0, 0, 0, 0.50);
+    opacity: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   10. MAIN — LAYOUT PRINCIPAL
+   ══════════════════════════════════════════════════ */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 0 80px;
+    gap: 40px;
+}
+
+/* ══════════════════════════════════════════════════
+   11. HERO SECTION — BLOCO DE TEXTO
+   ══════════════════════════════════════════════════ */
+.hero-section {
+    max-width: 580px;
+    padding-top: 100px; /* compensa a navbar fixa */
+    opacity: 0;         /* GSAP controla a entrada */
+}
+
+/* Pílula / badge de categoria */
+.tag {
+    display: inline-block;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    color: var(--branco);
+    background: rgba(139, 195, 74, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+}
+
+/* Poppins SemiBold — título principal */
+.hero-title {
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    line-height: 1.2;
+    color: var(--branco);
+    margin-bottom: 20px;
+}
+
+/* Destaque em verde dentro do título */
+.hero-title span {
+    color: var(--verde-principal);
+}
+
+/* Poppins Regular — texto de apoio */
+.hero-text {
+    font-family: var(--font-texto);
+    font-weight: 400;
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 500px;
+    margin-bottom: 12px;
+}
+
+/* ══════════════════════════════════════════════════
+   12. BOTÕES
+   ══════════════════════════════════════════════════ */
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Base compartilhada */
+.btn-cta,
+.btn-secondary {
+    display: inline-block;
+    font-family: var(--font-titulo);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 50px;
+    transition:
+        background var(--transition-normal),
+        color var(--transition-normal),
+        transform var(--transition-fast);
+}
+
+/* Botão primário — fundo verde */
+.btn-cta {
+    color: var(--verde-texto-cta);
+    background: var(--verde-principal);
+    border: 2px solid transparent;
+}
+
+.btn-cta:hover {
+    background: var(--verde-hover);
+    transform: translateY(-2px);
+}
+
+/* Botão secundário — contorno branco */
+.btn-secondary {
+    color: var(--branco);
+    background: transparent;
+    border: 2px solid var(--branco);
+    padding: 14px 35px;
+}
+
+.btn-secondary:hover {
+    background: var(--branco);
+    color: var(--verde-escuro);
+    transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════════════
+   13. HERO IMAGE
+   ══════════════════════════════════════════════════ */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0; /* GSAP controla a entrada */
+}
+
+.hero-image img {
+    width: 420px;
+    max-width: 100%;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+    transition: transform 0.5s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05) rotate(-3deg);
+}
+
+/* ══════════════════════════════════════════════════
+   14. RESPONSIVO
+   ══════════════════════════════════════════════════ */
+
+/* ── Tablet (até 960px): hamburger aparece ── */
+@media (max-width: 960px) {
+    .nav-desktop {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .main-content {
+        flex-direction: column;
+        justify-content: center;
+        padding: 120px 40px 60px;
+        text-align: center;
+        gap: 48px;
+    }
+
+    .hero-section {
+        max-width: 100%;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-image img {
+        width: 280px;
+    }
+}
+
+/* ── Mobile (até 600px): ajustes finos ── */
+@media (max-width: 600px) {
+    .hero {
+        top: 12px;
+        width: calc(100% - 24px);
+        padding: 14px 24px;
+    }
+
+    .logo-name {
+        font-size: 1.05rem;
+    }
+
+    .main-content {
+        padding: 110px 24px 48px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .btn-cta,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 220px;
+    }
+
+    .menu-mobile-link {
+        font-size: 1.3rem;
+    }
+}
