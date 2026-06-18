@@ -1,80 +1,999 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agro Station</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>AGRO STATION - Loja Virtual</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header class="hero" id="navbar">
+<header class="header" id="header">
 
-        <div class="logo">
-            <img src="assets/agro_station.svg" alt="Logotipo Agro Station">
-            <span class="logo-name">Agro Station</span>
-        </div>
+<div class="header__inner">
 
-        <!-- Nav desktop -->
-        <nav class="nav-desktop" aria-label="Menu principal">
-            <ul class="menu">
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Serviços e Produtos</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-            <a href="#" class="btn-link">Fale Conosco</a>
-        </nav>
+<a href="#" class="logo">
+AGRO <span>STATION</span>
+</a>
 
-        <!-- Botão hambúrguer (só aparece no mobile) -->
-        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+<nav class="nav-desktop">
+<ul>
 
-    </header>
+<li><a class="nav-link active" href="#">Home</a></li>
+<li><a class="nav-link" href="#categorias">Categorias</a></li>
+<li><a class="nav-link" href="#produtos">Produtos</a></li>
+<li><a class="nav-link" href="#newsletter">Newsletter</a></li>
 
-    <!-- Menu mobile (fora do header para não limitar o z-index) -->
-    <nav class="nav-mobile" id="menu-mobile" aria-label="Menu mobile" aria-hidden="true">
-        <ul class="menu-mobile">
-            <li><a href="#" class="menu-mobile-link">Início</a></li>
-            <li><a href="#" class="menu-mobile-link">Sobre Nós</a></li>
-            <li><a href="#" class="menu-mobile-link">Serviços e Produtos</a></li>
-            <li><a href="#" class="menu-mobile-link">Contato</a></li>
-        </ul>
-        <a href="#" class="btn-cta btn-mobile-cta">Fale Conosco</a>
-    </nav>
+</ul>
+</nav>
 
-    <!-- Overlay (fecha o menu ao clicar fora) -->
-    <div class="overlay" id="overlay" aria-hidden="true"></div>
+<div class="header__actions">
 
-    <main class="main-content">
-        <section class="hero-section">
-            <p class="tag">🌱 Agricultura Inteligente</p>
-            <h1 class="hero-title">
-                Do campo à sua mesa,<br>
-                <span>com tecnologia e cuidado.</span>
-            </h1>
-            <p class="hero-text">
-                Soluções agrícolas modernas para quem vive e respeita a terra.
-            </p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-cta">Conheça nossos produtos</a>
-                <a href="#" class="btn-secondary">Saiba mais</a>
-            </div>
-        </section>
-        <div class="hero-image">
-            <img src="assets/agro_station.svg" alt="Ilustração Agro Station">
-        </div>
-    </main>
+<button class="icon-btn" id="cartToggle">
 
-    <!-- GSAP -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <script src="js/script.js"></script>
+🛒
+
+<span class="cart-count" id="cartCount">0</span>
+
+</button>
+
+<button class="btn-header">
+
+Entrar
+
+</button>
+
+<button
+class="menu-toggle"
+id="menuToggle"
+aria-expanded="false">
+
+<span></span>
+<span></span>
+<span></span>
+
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="#" class="mobile-link">Home</a>
+
+<a href="#categorias" class="mobile-link">Categorias</a>
+
+<a href="#produtos" class="mobile-link">Produtos</a>
+
+<a href="#newsletter" class="mobile-link">Newsletter</a>
+
+<a href="#" class="btn-mobile-cta">
+
+Minha Conta
+
+</a>
+
+</div>
+
+<section class="hero">
+
+<div class="hero__grid"></div>
+
+<div class="hero__orb hero__orb--1"></div>
+
+<div class="hero__orb hero__orb--2"></div>
+
+<div class="hero__container">
+
+<div class="hero__content">
+
+<div class="hero__eyebrow">
+
+<div class="eyebrow__dot"></div>
+
+Tecnologia para o Agronegócio
+
+</div>
+
+<h1 class="hero__title">
+
+Tudo para sua fazenda
+
+<span class="hero__title--accent">
+
+em um só lugar
+
+</span>
+
+</h1>
+
+<p class="hero__description">
+
+Equipamentos agrícolas inteligentes,
+sementes, irrigação, drones e tecnologia
+de precisão para aumentar sua produtividade.
+
+</p>
+
+<div class="hero__actions">
+
+<a class="btn-primary" href="#produtos">
+
+Comprar Agora
+
+</a>
+
+<a class="btn-ghost" href="#categorias">
+
+Explorar
+
+</a>
+
+</div>
+
+<div class="hero__stats">
+
+<div class="stat">
+
+<span class="stat__value">
+
++15k
+
+</span>
+
+<span class="stat__label">
+
+Clientes
+
+</span>
+
+</div>
+
+<div class="stat__divider"></div>
+
+<div class="stat">
+
+<span class="stat__value">
+
+800+
+
+</span>
+
+<span class="stat__label">
+
+Produtos
+
+</span>
+
+</div>
+
+<div class="stat__divider"></div>
+
+<div class="stat">
+
+<span class="stat__value">
+
+4.9★
+
+</span>
+
+<span class="stat__label">
+
+Avaliação
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero__visual">
+
+<div class="hero-product">
+
+<div class="hero-product__badge">
+
+DESTAQUE
+
+</div>
+
+<div class="hero-product__media">
+
+🚁
+
+</div>
+
+<div class="hero-product__info">
+
+<span class="hero-product__category">
+
+DRONES
+
+</span>
+
+<h3 class="hero-product__name">
+
+Drone Pulverizador Inteligente
+
+</h3>
+
+<div class="hero-product__price">
+
+<span class="price-old">
+
+R$ 19.999
+
+</span>
+
+<span class="price-current">
+
+R$ 16.990
+
+</span>
+
+</div>
+
+<button
+class="hero-product__cta"
+data-add-cart
+data-name="Drone Pulverizador Inteligente"
+data-price="16990"
+data-img="drone">
+
+Adicionar ao carrinho
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="data-ticker">
+
+<div class="data-ticker__track">
+
+<div class="ticker-item">
+
+<div class="ticker-item__dot green"></div>
+
+Frete grátis acima de R$250
+
+</div>
+
+<div class="ticker-item">
+
+<div class="ticker-item__dot blue"></div>
+
+Entrega para todo Brasil
+
+</div>
+
+<div class="ticker-item">
+
+<div class="ticker-item__dot amber"></div>
+
+Parcelamento em 12x
+
+</div>
+
+<div class="ticker-item">
+
+<div class="ticker-item__dot green"></div>
+
+Suporte Especializado
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="categories" id="categorias">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<span class="section-eyebrow">
+
+Categorias
+
+</span>
+
+<h2 class="section-title">
+
+Explore nossos produtos
+
+</h2>
+
+</div>
+
+</div>
+
+<div class="categories__grid">
+
+<a class="cat-card cat-card--green" data-filter="drone">
+
+<div class="cat-card__icon">
+
+🚁
+
+</div>
+
+<div class="cat-card__body">
+
+<div class="cat-card__title">
+
+Drones
+
+</div>
+
+<div class="cat-card__count">
+
+32 produtos
+
+</div>
+
+</div>
+
+</a>
+
+<a class="cat-card cat-card--amber" data-filter="sementes">
+
+<div class="cat-card__icon">
+
+🌽
+
+</div>
+
+<div class="cat-card__body">
+
+<div class="cat-card__title">
+
+Sementes
+
+</div>
+
+<div class="cat-card__count">
+
+110 produtos
+
+</div>
+
+</div>
+
+</a>
+
+<a class="cat-card cat-card--blue" data-filter="irrigacao">
+
+<div class="cat-card__icon">
+
+💧
+
+</div>
+
+<div class="cat-card__body">
+
+<div class="cat-card__title">
+
+Irrigação
+
+</div>
+
+<div class="cat-card__count">
+
+70 produtos
+
+</div>
+
+</div>
+
+</a>
+
+<a class="cat-card cat-card--green" data-filter="gps">
+
+<div class="cat-card__icon">
+
+📡
+
+</div>
+
+<div class="cat-card__body">
+
+<div class="cat-card__title">
+
+GPS
+
+</div>
+
+<div class="cat-card__count">
+
+40 produtos
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="products" id="produtos">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<span class="section-eyebrow">
+
+Produtos
+
+</span>
+
+<h2 class="section-title">
+
+Mais vendidos
+
+</h2>
+
+</div>
+
+<div class="filter-tabs">
+
+<button class="filter-tab active" data-filter="all">
+
+Todos
+
+</button>
+
+<button class="filter-tab" data-filter="drone">
+
+Drones
+
+</button>
+
+<button class="filter-tab" data-filter="sementes">
+
+Sementes
+
+</button>
+
+<button class="filter-tab" data-filter="gps">
+
+GPS
+
+</button>
+
+<button class="filter-tab" data-filter="irrigacao">
+
+Irrigação
+
+</button>
+
+</div>
+
+</div>
+
+<div class="products__grid" id="productsGrid">
+
+<div class="product-card" data-cat="drone">
+
+<div class="product-card__media product-card__media--green">
+
+🚁
+
+</div>
+
+<div class="product-card__body">
+
+<div class="product-card__cat">
+
+Drone
+
+</div>
+
+<div class="product-card__name">
+
+Drone Pulverizador 20L
+
+</div>
+
+<div class="product-card__price">
+
+<span class="price-current">
+
+R$ 16.990
+
+</span>
+
+</div>
+
+<button
+class="product-card__btn"
+data-add-cart
+data-name="Drone Pulverizador 20L"
+data-price="16990"
+data-img="drone">
+
+Adicionar
+
+</button>
+
+</div>
+
+</div>
+
+<div class="product-card" data-cat="sementes">
+
+<div class="product-card__media product-card__media--amber">
+
+🌽
+
+</div>
+
+<div class="product-card__body">
+
+<div class="product-card__cat">
+
+Sementes
+
+</div>
+
+<div class="product-card__name">
+
+Milho Híbrido Premium
+
+</div>
+
+<div class="product-card__price">
+
+<span class="price-current">
+
+R$ 299
+
+</span>
+
+</div>
+
+<button
+class="product-card__btn"
+data-add-cart
+data-name="Milho Híbrido Premium"
+data-price="299"
+data-img="corn">
+
+Adicionar
+
+</button>
+
+</div>
+
+</div>
+
+<div class="product-card" data-cat="gps">
+
+<div class="product-card__media product-card__media--blue">
+
+📡
+
+</div>
+
+<div class="product-card__body">
+
+<div class="product-card__cat">
+
+GPS
+
+</div>
+
+<div class="product-card__name">
+
+GPS Agrícola RTK
+
+</div>
+
+<div class="product-card__price">
+
+<span class="price-current">
+
+R$ 7.490
+
+</span>
+
+</div>
+
+<button
+class="product-card__btn"
+data-add-cart
+data-name="GPS Agrícola RTK"
+data-price="7490"
+data-img="gps">
+
+Adicionar
+
+</button>
+
+</div>
+
+</div>
+
+<div class="product-card" data-cat="irrigacao">
+
+<div class="product-card__media product-card__media--cyan">
+
+💧
+
+</div>
+
+<div class="product-card__body">
+
+<div class="product-card__cat">
+
+Irrigação
+
+</div>
+
+<div class="product-card__name">
+
+Kit Irrigação Inteligente
+
+</div>
+
+<div class="product-card__price">
+
+<span class="price-current">
+
+R$ 1.390
+
+</span>
+
+</div>
+
+<button
+class="product-card__btn"
+data-add-cart
+data-name="Kit Irrigação Inteligente"
+data-price="1390"
+data-img="irrigation">
+
+Adicionar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="benefits">
+
+<div class="container">
+
+<div class="benefits__grid">
+
+<div class="benefit">
+
+<div class="benefit__icon">
+
+🚚
+
+</div>
+
+<div>
+
+<div class="benefit__title">
+
+Entrega Rápida
+
+</div>
+
+<div class="benefit__desc">
+
+Todo Brasil
+
+</div>
+
+</div>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit__icon">
+
+🔒
+
+</div>
+
+<div>
+
+<div class="benefit__title">
+
+Compra Segura
+
+</div>
+
+<div class="benefit__desc">
+
+SSL Protegido
+
+</div>
+
+</div>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit__icon">
+
+💳
+
+</div>
+
+<div>
+
+<div class="benefit__title">
+
+12x Sem Juros
+
+</div>
+
+<div class="benefit__desc">
+
+Cartão
+
+</div>
+
+</div>
+
+</div>
+
+<div class="benefit">
+
+<div class="benefit__icon">
+
+🌱
+
+</div>
+
+<div>
+
+<div class="benefit__title">
+
+Especialistas
+
+</div>
+
+<div class="benefit__desc">
+
+AgroTech
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta-banner" id="newsletter">
+
+<div class="container">
+
+<div class="cta-banner__inner">
+
+<div class="cta-banner__text">
+
+<span class="section-eyebrow">
+
+Newsletter
+
+</span>
+
+<h2 class="cta-banner__title">
+
+Receba ofertas exclusivas
+
+</h2>
+
+<p class="cta-banner__desc">
+
+Cadastre seu e-mail e fique por dentro das novidades.
+
+</p>
+
+</div>
+
+<form class="cta-banner__form" id="newsletterForm">
+
+<input
+type="email"
+placeholder="Digite seu e-mail"
+required>
+
+<button>
+
+Cadastrar
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer__bottom">
+
+<div>
+
+© 2025 AGRO STATION
+
+</div>
+
+<div class="footer__pay">
+
+<span>PIX</span>
+
+<span>VISA</span>
+
+<span>MASTERCARD</span>
+
+<span>BOLETO</span>
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<div class="cart-sidebar" id="cartSidebar">
+
+<div class="cart-sidebar__head">
+
+<h3>
+
+Carrinho
+
+<span
+class="cart-sidebar__count"
+id="cartSidebarCount">
+
+0
+
+</span>
+
+</h3>
+
+<button id="cartClose">
+
+✕
+
+</button>
+
+</div>
+
+<div class="cart-sidebar__body" id="cartBody">
+
+<div class="cart-empty" id="cartEmpty">
+
+Carrinho vazio
+
+</div>
+
+</div>
+
+<div class="cart-sidebar__foot" id="cartFoot" hidden>
+
+<div class="cart-sidebar__row">
+
+<span>Subtotal</span>
+
+<strong id="cartSubtotal">
+
+R$0,00
+
+</strong>
+
+</div>
+
+<div class="cart-sidebar__row">
+
+<span>Frete</span>
+
+<strong id="cartShipping">
+
+R$0,00
+
+</strong>
+
+</div>
+
+<div class="cart-sidebar__row cart-sidebar__row--total">
+
+<span>Total</span>
+
+<strong id="cartTotal">
+
+R$0,00
+
+</strong>
+
+</div>
+
+<button
+class="cart-sidebar__cta"
+id="checkoutBtn">
+
+Finalizar Compra
+
+</button>
+
+<button
+class="cart-sidebar__continue"
+id="cartContinue">
+
+Continuar Comprando
+
+</button>
+
+</div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
+
